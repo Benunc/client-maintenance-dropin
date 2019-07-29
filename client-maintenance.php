@@ -1,12 +1,18 @@
 <?php
 
+// if the next line is not commented out, your site is in maintenance mode
 add_action( 'init', 'my_maintenance_mode' );
 
 function my_maintenance_mode() {
+	//change this value to your user email
 	$email            = 'admin@example.com';
-	$user             = wp_get_current_user();
+
+	//change this to something appropriate for this client
 	$interesting_link = '<a href="https://facebook.com/thewpsteward"> Our Facebook Page</a></p>';
+
+	// (optional) change the image URL for the "We'll Be Right Back" image.
 	$image_url        = 'https://s3.amazonaws.com/wpsteward/wp-content/uploads/2019/07/28183925/Official-Memo-1.jpg';
+	$user             = wp_get_current_user();
 
 	if ( $email !== $user->user_email ) {
 
